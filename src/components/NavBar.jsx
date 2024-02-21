@@ -1,6 +1,24 @@
-export default function NavBar() {
+export default function NavBar({user}) {
+
+  let txt ="";
+  if (user) {
+     txt = `welcome ${user.firstname} ${user.lastname}`;
+
+  } else {
+    txt = "please Login!";
+  }
+
   return (
     <>
+    <h3>
+      {txt}
+    </h3>
+    <h3>{user
+        ? user.itemsIncart
+        ?`${user.itemsIncart}in your cart` 
+        : ""
+      :""}{""}
+      </h3>
       <a href="#home">Home </a>
       <a href="#home">Laptops </a>
       <a href="#contact">Contact </a>
